@@ -1,5 +1,5 @@
 <?php include'db_connect.php' ?>
-<div class="col-lg-12">
+<div class="col-lg-12"> 
 	<div class="card card-outline card-success">
 		<div class="card-header">
             <?php if($_SESSION['login_type'] != 3 && $_SESSION['login_type'] != 5 && $_SESSION['login_type'] != 7 && $_SESSION['login_type'] != 6 && $_SESSION['login_type'] != 8): ?>
