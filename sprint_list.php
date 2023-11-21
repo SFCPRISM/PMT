@@ -7,7 +7,7 @@
 				<a class="btn btn-block btn-sm btn-default btn-flat border-primary" href="./index.php?page=new_sprint"><i class="fa fa-plus"></i> Add New Sprint</a>
 			</div>
             <?php endif; ?>
-		</div>
+		</div> 
 		<div class="card-body">
 			<div class="table-responsive">
 			<table class="table tabe-hover table-condensed" id="list">
