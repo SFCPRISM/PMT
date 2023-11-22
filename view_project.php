@@ -8,7 +8,7 @@ $qry = $conn->query("SELECT * FROM project_list
                     WHERE id = $id AND sprint_list.Sprint_Status = 'Open'")->fetch_array();
 $project_id = isset($_GET['id']) ? $_GET['id'] : null;
 if ($qry == null) {
-    echo 'Create a sprint for this project!';
+    echo 'Create a sprint for this project!" or "There may not be any open sprints';
     echo '<a href="./index.php?page=new_sprint&id=' . $_GET['id'] . '"
 	class="nav-link  nav-new_sprint  nav-View_Sprint">
           <p>
