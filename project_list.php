@@ -113,7 +113,7 @@
 		                      <a class="dropdown-item" href="./index.php?page=edit_project&id=<?php echo $row['id'] ?>">Edit</a>
 		                      <div class="dropdown-divider"></div>
 							  <?php if($_SESSION['login_type'] == 1 || $_SESSION['login_type'] == 2){ ?>
-		                      <a class="dropdown-item delete_project" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>">Delete</a>
+							  <a class="dropdown-item delete_project" href="javascript:void(0)"data-id="<?php echo $row['id'] ?>">Delete</a>
 								<?php }?>
 		                  <?php endif; ?>
 		                    </div>
@@ -138,9 +138,9 @@
 	$(document).ready(function(){
 		$('#list').dataTable()
 	
-	$('.delete_project').click(function(){
-	_conf("Are you sure to delete this project?","delete_project",[$(this).attr('data-id')])
-	})
+		$('#list').on('click', '.delete_project', function () {
+			_conf("Are you sure to delete this user?", "delete_project", [$(this).attr('data-id')]);
+		});
 	})
 	function delete_project($id){
 		start_load()

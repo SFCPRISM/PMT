@@ -98,7 +98,8 @@
 				<hr>
 				<div class="col-lg-12 text-right justify-content-center d-flex">
 					<button class="btn btn-primary mr-2">Save</button>
-					<button class="btn btn-secondary" type="button" onclick="location.href = 'index.php'">Cancel</button>
+					<button class="btn btn-secondary" type="button" onclick="goBack()">Cancel</button>
+
 				</div>
 			</form>
 		</div>

@@ -371,7 +371,6 @@ Class Action {
 	}
 	function save_comment(){
 		extract($_POST);
-		
 		$data = "";
 		foreach($_POST as $k => $v){
 			if(!in_array($k, array('id')) && !is_numeric($k)){

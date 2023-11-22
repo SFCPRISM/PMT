@@ -224,7 +224,9 @@ function showActivity() {
 function reload_page(){
 	location.reload();
 }
-
+function goBack() {
+    window.history.back();
+}
 </script>
 <script src="assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- overlayScrollbars -->

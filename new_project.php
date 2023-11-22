@@ -18,7 +18,7 @@ $currentDateTime = date('Y-m-d H:i:s');
 					<input type="text" class="form-control form-control-sm" name="name" value="<?php echo isset($name) ? $name : '' ?>">
 				</div>
 			</div>
-          	<div class="col-md-6">
+        <div class="col-md-6">
 				<div class="form-group">
 					<label for="">Status</label>
 					<select name="status" id="status" class="custom-select custom-select-sm">
@@ -44,7 +44,6 @@ $currentDateTime = date('Y-m-d H:i:s');
           </div>
 		</div>
         <div class="row">
-        	<?php if($_SESSION['login_type'] == 1 ): ?>
            <div class="col-md-6">
             <div class="form-group">
               <label for="" class="control-label">Project Manager</label>
@@ -60,9 +59,6 @@ $currentDateTime = date('Y-m-d H:i:s');
               </select>
             </div>
           </div>
-      <?php else: ?>
-      	<input type="hidden" name="manager_id[]" value="<?php echo $_SESSION['login_id'] ?>">
-      <?php endif; ?>
           <div class="col-md-6">
             <div class="form-group">
               <label for="" class="control-label">Project Team Members</label>
@@ -139,7 +135,7 @@ $currentDateTime = date('Y-m-d H:i:s');
 			<div class="col-md-10">
 				<div class="form-group">
 					<label for="" class="control-label">Description</label>
-					<textarea name="description" cols="30"  class="form-control">
+					<textarea name="description" cols="30" rows="3"   class="form-control">
 						<?php echo isset($description) ? $description : '' ?>
 					</textarea>
 				</div>
@@ -191,7 +187,7 @@ function isFormDataEmpty() {
             return true;
         }
 
-        if (startDate >= endDate) {
+        if (startDate > endDate) {
             alert_toast('Start date should be less than the end date.', 'warning');
             return true;
         }
