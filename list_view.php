@@ -120,6 +120,7 @@ $('#project').change(function() {
     method: 'POST',
     dataType: 'json', // Set the expected response data type to JSON
     success: function(resp) {
+      console.log('resp @@@ ',resp);
         createListView(resp);
     }
     });
@@ -139,7 +140,7 @@ function createListView(resp) {
     tableHTML += '<colgroup>';
     tableHTML += '<col width="5%">';
     tableHTML += '<col width="15%">';
-    
+    tableHTML += '<col width="15%">';
     // Check if 'task_type' exists for at least one element in the resp array
     const hasTaskType = resp.some(item => typeof item.task_type !== 'undefined' && item.task_type !== null);
 
@@ -165,7 +166,7 @@ function createListView(resp) {
     tableHTML += '<tr>';
     tableHTML += '<th class="text-center">#</th>';
     tableHTML += '<th>Task</th>';
-    
+    tableHTML += '<th>Sprint</th>';
     if (hasTaskType) {
         tableHTML += '<th>Type</th>';
     }
@@ -191,7 +192,7 @@ function createListView(resp) {
         tableHTML += '<tr>';
         tableHTML += '<td>' + (i + 1) + '</td>'; // Incrementing row number
         tableHTML += '<td><a class="dropdown-item view_task" href="javascript:void(0)" data-id="' + resp[i].id + '" data-task="' + resp[i].task + '">' + (resp[i].sub_task ? resp[i].sub_task : resp[i].task) + '</a></td>';
-        
+        tableHTML += '<td>' + resp[i].Sprint_Title + '</td>';
         // Include the condition for task_type and display the corresponding label if available
         if (hasTaskType) {
             let typeLabel = '';

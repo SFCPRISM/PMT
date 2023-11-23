@@ -525,22 +525,21 @@ Class Action {
 		extract($_POST);
 		if (isset($where) && !empty($where)) {
 		
-			$query = "SELECT CONCAT(users.firstname, ' ', users.lastname) AS user_name, task_list.*
+			$query = "SELECT CONCAT(users.firstname, ' ', users.lastname) AS user_name, task_list.*,sprint_list.Sprint_Title
 			FROM task_list
 			JOIN users ON task_list.user_id = users.id
 			JOIN sprint_list ON task_list.Sprint_Id = sprint_list.Sprint_Id";
-  
 			$query .= " WHERE task_list.project_id = " . $id . " AND " . $where;
 		} elseif (isset($where_subtask) && !empty($where_subtask)) {
 		
-			$query = "SELECT CONCAT(users.firstname, ' ', users.lastname) AS user_name, sub_task_list.*
+			$query = "SELECT CONCAT(users.firstname, ' ', users.lastname) AS user_name, sub_task_list.*,sprint_list.Sprint_Title
 					FROM sub_task_list
 					JOIN users ON sub_task_list.user_id = users.id
 					JOIN sprint_list ON task_list.Sprint_Id = sprint_list.Sprint_Id";
 			$query .= " WHERE sub_task_list.project_id = " . $id;
 		} else {
 		
-			$query = "SELECT CONCAT(users.firstname, ' ', users.lastname) AS user_name, task_list.*
+			$query = "SELECT CONCAT(users.firstname, ' ', users.lastname) AS user_name, task_list.*,sprint_list.Sprint_Title
 					FROM task_list
 					JOIN users ON task_list.user_id = users.id
 					JOIN sprint_list ON task_list.Sprint_Id = sprint_list.Sprint_Id";
