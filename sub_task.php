@@ -5,7 +5,7 @@ $project = $conn->query("SELECT project_list.type FROM project_list WHERE projec
 $projectType = $project['type'];
 if(isset($_GET['event'])){
     if($_GET['event'] == 'edit'){       
-        $qry = $conn->query("SELECT * FROM sub_task_list where id = ".$_GET['id'])->fetch_array();
+        $qry = $conn->query("SELECT * FROM sub_task_list where id = ".$_GET['id'] )->fetch_array();
         $project_id = $qry['project_id'];
         foreach($qry as $k => $v){
             $$k = $v;
@@ -32,9 +32,9 @@ foreach ($userIdsArray as $userId) {
 $currentDateTime = date('Y-m-d H:i:s');
 
 //print_r($usersArray);die;
-$allusers = $conn->query("SELECT * FROM users WHERE type IN (3,7,8,4)")->fetch_all(MYSQLI_ASSOC);
+$allusers = $conn->query("SELECT * FROM users WHERE type IN (3,7,8,4) AND Status = 2")->fetch_all(MYSQLI_ASSOC);
 //print_r($allusers);die;
-$testers = $conn->query("SELECT * FROM users WHERE type IN (5)")->fetch_all(MYSQLI_ASSOC);
+$testers = $conn->query("SELECT * FROM users WHERE type IN (5) AND Status = 2")->fetch_all(MYSQLI_ASSOC);
 ?>
 
 <div class="container-fluid">
