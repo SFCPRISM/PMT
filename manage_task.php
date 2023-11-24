@@ -26,8 +26,8 @@ $usersArray[] = array(
 }
 $currentDateTime = date('Y-m-d H:i:s');
 //print_r($usersArray);die;
-$allusers = $conn->query("SELECT * FROM users WHERE type IN (3,7,8,4)")->fetch_all(MYSQLI_ASSOC);
-$testers = $conn->query("SELECT * FROM users WHERE type IN (5)")->fetch_all(MYSQLI_ASSOC);
+$allusers = $conn->query("SELECT * FROM users WHERE type IN (3,7,8,4) AND Status = 2")->fetch_all(MYSQLI_ASSOC);
+$testers = $conn->query("SELECT * FROM users WHERE type IN (5) AND Status = 2")->fetch_all(MYSQLI_ASSOC);
 //print_r($allusers);die;
 ?>
 

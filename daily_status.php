@@ -68,7 +68,7 @@
 						</div>
 						<div class="form-group">
 							<label for="" class="control-label">Task Title</label>
-                            <input type="text" name="task_id" value="<?php echo isset($task) ? ($task) : ''; ?>" class="form-control required form-control-sm" />
+                            <input type="text" name="task_id" value="<?php echo isset($task_id) ? ($task_id) : ''; ?>" class="form-control required form-control-sm" />
 						</div>
 						
 						<div class="form-group">

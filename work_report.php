@@ -1,5 +1,5 @@
 <?php include'db_connect.php' ;
-$allusers = $conn->query("SELECT *,concat(firstname,' ',lastname) as name FROM users WHERE type IN (3,5,7,8,4)")->fetch_all(MYSQLI_ASSOC);
+$allusers = $conn->query("SELECT *,concat(firstname,' ',lastname) as name FROM users WHERE type IN (3,5,7,8,4) AND Status = 2 order by concat(firstname,' ',lastname) asc ")->fetch_all(MYSQLI_ASSOC);
 if($_SESSION['login_type']==7){
 
     $value = $_SESSION['login_teams'].','.$_SESSION['login_id'];

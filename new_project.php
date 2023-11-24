@@ -50,7 +50,7 @@ $currentDateTime = date('Y-m-d H:i:s');
               <select class="form-control form-control-sm select2" multiple="multiple" name="manager_id[]">
               	<option></option>
               	<?php 
-              	$managers = $conn->query("SELECT *,concat(firstname,' ',lastname) as name FROM users where type = 2 order by concat(firstname,' ',lastname) asc ");
+              	$managers = $conn->query("SELECT *,concat(firstname,' ',lastname) as name FROM users where type = 2 AND Status = 2 order by concat(firstname,' ',lastname) asc  ");
               	while($row= $managers->fetch_assoc()):
               	?>
 				<option value="<?php echo $row['id'] ?>" <?php echo isset($manager_id) && in_array($row['id'],explode(',',$manager_id)) ? "selected" : '' ?>><?php echo ucwords($row['name']) ?></option>
@@ -65,7 +65,7 @@ $currentDateTime = date('Y-m-d H:i:s');
               <select class="form-control form-control-sm select2" multiple="multiple" name="user_ids[]">
               	<option></option>
               	<?php 
-              	$employees = $conn->query("SELECT *,concat(firstname,' ',lastname) as name FROM users where type IN (3, 5,8) order by concat(firstname,' ',lastname) asc ");
+              	$employees = $conn->query("SELECT *,concat(firstname,' ',lastname) as name FROM users where type IN (3, 5,8) AND Status = 2 order by concat(firstname,' ',lastname) asc ");
               	while($row= $employees->fetch_assoc()):
               	?>
               	<option value="<?php echo $row['id'] ?>" <?php echo isset($user_ids) && in_array($row['id'],explode(',',$user_ids)) ? "selected" : '' ?>><?php echo ucwords($row['name']) ?></option>
@@ -81,7 +81,7 @@ $currentDateTime = date('Y-m-d H:i:s');
               <select class="form-control form-control-sm select2" name="guest_id">
               	<option></option>
               	<?php 
-              	$guest = $conn->query("SELECT *,concat(firstname,' ',lastname) as name FROM users where type = 6 order by concat(firstname,' ',lastname) asc ");
+              	$guest = $conn->query("SELECT *,concat(firstname,' ',lastname) as name FROM users where type = 6 AND Status = 2 order by concat(firstname,' ',lastname) asc ");
               	while($row= $guest->fetch_assoc()):
               	?>
                 <option value="<?php echo $row['id'] ?>" <?php echo isset($guest_id) && $guest_id == $row['id'] ? "selected" : '' ?>><?php echo ucwords($row['name']) ?></option>
@@ -95,7 +95,7 @@ $currentDateTime = date('Y-m-d H:i:s');
               <select class="form-control form-control-sm select2" multiple="multiple" name="tech_lead_id[]">
               	<option></option>
               	<?php 
-              	$techlead = $conn->query("SELECT *,concat(firstname,' ',lastname) as name FROM users where type = 4 order by concat(firstname,' ',lastname) asc ");
+              	$techlead = $conn->query("SELECT *,concat(firstname,' ',lastname) as name FROM users where type = 4 AND Status = 2 order by concat(firstname,' ',lastname) asc ");
               	while($row= $techlead->fetch_assoc()):
               	?>
 				<option value="<?php echo $row['id'] ?>" <?php echo isset($tech_lead_id) && in_array($row['id'],explode(',',$tech_lead_id)) ? "selected" : '' ?>><?php echo ucwords($row['name']) ?></option>
@@ -111,7 +111,7 @@ $currentDateTime = date('Y-m-d H:i:s');
               <select class="form-control form-control-sm select2" multiple="multiple" name="team_lead[]">
               	<option></option>
               	<?php 
-              	$teamlead = $conn->query("SELECT *,concat(firstname,' ',lastname) as name FROM users where type = 7 order by concat(firstname,' ',lastname) asc ");
+              	$teamlead = $conn->query("SELECT *,concat(firstname,' ',lastname) as name FROM users where type = 7 AND Status = 2 order by concat(firstname,' ',lastname) asc ");
               	while($row= $teamlead->fetch_assoc()):
               	?>
 				<option value="<?php echo $row['id'] ?>" <?php echo isset($team_lead) && in_array($row['id'],explode(',',$team_lead)) ? "selected" : '' ?>><?php echo ucwords($row['name']) ?></option>
